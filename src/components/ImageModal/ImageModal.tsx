@@ -3,7 +3,7 @@ import Modal from "react-modal";
 
 //type
 import { Image } from "../App/App.types";
-import React, { FC } from "react";
+import React from "react";
 
 const customStyles = {
   content: {
@@ -39,7 +39,8 @@ const ImageModal: React.FC<ImageModalProps> = ({ onClose, image }) => {
         </button>
         <div className={s.descriptions}>
           <p>
-            <span className={s.name}>Photo by:</span> {image.user.name}
+            <span className={s.name}>Photo by:</span>{" "}
+            {image.user ? image.user.name : "Unknown"}
           </p>
           <p>
             <span className={s.name}>likes:</span> {image.likes}
