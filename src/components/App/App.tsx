@@ -50,9 +50,10 @@ const App = () => {
         setIsError(false);
         setIsLoading(true);
 
-        //const { results, total_pages } = await fetchPhoto(query, page); //приходить [{},{},..,{}]
-        const response = await fetchPhoto(query, page);
-        const { results, total_pages } = response as FetchPhotoResponse; //явне приведення до типу FetchPhotoResponse
+        const { results, total_pages } = await fetchPhoto<FetchPhotoResponse>(
+          query,
+          page
+        ); //приходить [{},{},..,{}]
 
         setImages((prev) => [...prev, ...results]);
         setTotalPages(total_pages);
