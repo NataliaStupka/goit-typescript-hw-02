@@ -1,6 +1,6 @@
 1. Створення проекту:
    - в терміналі переходімо в папку проекта;
-   - npm create vite@latest my-react-app -- --template react-ts
+   - npm create vite@latest my-react-app -- --template react-ts;
      my-react-app - це назва проекту, ім'я папки;
      template react-ts - прапорець, що вказує Vite використовувати шаблон React із TypeScript для нового проекту.
      npm install -> npm run dev (Запустить проєкт)
