@@ -1,4 +1,5 @@
-import { Formik, Form, Field } from "formik";
+//FormikHelpers - Обробник сабміту форми
+import { Formik, Form, Field, FormikHelpers } from "formik";
 import toast from "react-hot-toast";
 import s from "./SearchBar.module.css";
 import PropTypes from "prop-types";
@@ -10,9 +11,6 @@ interface SearchBarProps {
 interface SearchValue {
   query: string;
 }
-interface SearchOptions {
-  resetForm: () => void;
-}
 
 //const SearchBar: React.FC<{onSearchValue: (value: string) => void}> = ({onSearchValue}) =>
 const SearchBar: FC<SearchBarProps> = ({ onSearchValue }) => {
@@ -20,7 +18,10 @@ const SearchBar: FC<SearchBarProps> = ({ onSearchValue }) => {
   const initialValues = {
     query: "",
   };
-  const handleSubmit = (value: SearchValue, options: SearchOptions) => {
+  const handleSubmit = (
+    value: SearchValue,
+    options: FormikHelpers<SearchValue>
+  ) => {
     if (value.query === "") {
       toast.error("Введіть значення в поле пошуку!");
     }
